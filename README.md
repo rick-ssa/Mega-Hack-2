@@ -13,3 +13,20 @@
 - Clientes terão uma pontuação por compra (que poderá ser trocada por premiação|desconto como incentivo a compra)
 - Clientes pode ter um carrinho único e passear por entre as lojas com enchendo ele e no final fazer a compra em um caixa central
 
+### Backend
+
+- EndPoint Lojas
+    - index (lista todas as lojas - `GET`)
+    - create (adiciona loja - `POST`)
+    - update (altera dados da loja - `PUT`)
+    - destroy (deleta uma loja - `DELETE`)
+
+- EndPoint Lojas/:idLoja
+    -index (lista uma única loja - `GET`)
+
+- EndPoint Lojas/:idLoja/Produtos
+    - index (Lista todos os produtos da loja - `GET`)
+    - create (adiciona produto da loja - `POST`)
+    - update (altera dados do produto de uma loja - `PUT`)
+    - destroy (deleta um produto de uma loja - `DELETE`)
+
