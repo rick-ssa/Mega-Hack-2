@@ -22,7 +22,7 @@
     - destroy (deleta uma loja - `DELETE`)
 
 - EndPoint Lojas/:idLoja
-    -index (lista uma única loja - `GET`)
+    - index (lista uma única loja - `GET`)
 
 - EndPoint Lojas/:idLoja/Produtos
     - index (Lista todos os produtos da loja - `GET`)
