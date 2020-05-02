@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 const dataBaseFunctions = require('../database/handlers/inserts')
+const bcrypt = require('bcrypt')
+
 
 module.exports = {
     async index (req, res) {
@@ -8,13 +10,17 @@ module.exports = {
 
     async store (req,res) {
         try{
-            dataBaseFunctions.register(req.body,(err,result)=>{
+            bcrypt.hash(req.body.password,10,(err,hash)=>{
                 if(err) throw err
-                const accessToken = jwt.sign({userId: result.insertId, name: req.body.name},process.env.API_KEY_SECRET,{
-                    expiresIn: '1h'
+                let data = {...req.body, password: hash}
+                dataBaseFunctions.register(data,(err,result)=>{
+                    if(err) throw err
+                    const accessToken = jwt.sign({userId: result.insertId, name: data.name},process.env.API_KEY_SECRET,{
+                        expiresIn: '1h'
+                    })
+        
+                    res.json({userId: result.insertId, accessToken})
                 })
-    
-                res.json({userId: result.insertId, accessToken})
             })
         }
         catch(err){
