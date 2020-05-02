@@ -58,11 +58,39 @@ async function createTablesProducts() {
     })
 }
 
+async function createTablesUsersProducts() {
+    const con = await connection()
+
+    let sql = ''
+    sql = "CREATE TABLE IF NOT EXISTS users_products("
+    sql += "usersProductsId INT NOT NULL PRIMARY KEY AUTO_INCREMENT, "
+    sql += "userId INT NOT NULL, "
+    sql += "productId INT NOT NULL, "
+    sql += "quantity INT NOT NULL, "
+    sql += "orderAmount INT NOT NULL, "
+    sql += "minAmount INT NOT NULL, "
+    sql += "reposition BOOLEAN NOT NULL, "
+    sql += "notifiedWhatsapp BOOLEAN NOT NULL, "
+    sql += "FOREIGN KEY (userId) REFERENCES users (userId) "
+    sql += "ON DELETE CASCADE "
+    sql += "ON UPDATE CASCADE, "
+    sql += "FOREIGN KEY (productId) REFERENCES vtex_products (productId) "
+    sql += "ON DELETE CASCADE "
+    sql += "ON UPDATE CASCADE"
+    sql += ")"
+
+    con.query(sql, (err)=>{
+        if(err) throw err
+
+        con.end()
+    })
+}
+
 async function createTables() {
     await createTablesUsers()
     await createTablesCategories()
     await createTablesProducts()
-
+    await createTablesUsersProducts()
 }
 
 module.exports = createTables
