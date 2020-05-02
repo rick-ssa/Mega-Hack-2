@@ -1,9 +1,12 @@
+require('dotenv').config()
+
 const express = require('express');
 const promotionsCategoriasRouter = require('./routes/promotions/categories');
 const promotionsProductsRouter = require('./routes/promotions/products');
 const usersRouter = require('./routes/user');
 
-require('./database/initiate')()
+
+require('./database/create/initiate')()
 
 
 const app = express()
