@@ -1,10 +1,17 @@
+require('dotenv').config()
+
+const jwt = require('jsonwebtoken')
+
 module.exports = {
     async index (req, res) {
-        res.json(['loja1','loja2'])
+        res.json({message: 'list lojas'})
     },
 
     async store (req,res) {
-        res.json({message: 'stored loja'})
+        const accessToken = jwt.sign({id: 254, name: 'ricardo'},process.env.API_KEY_SECRET,{
+            expiresIn: '1h'
+        })
+        res.json({accessToken})
     },
 
     async update (req, res) {
