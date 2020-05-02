@@ -3,8 +3,8 @@ const promotionsCategoriasRouter = require('./routes/promotions/categories');
 const promotionsProductsRouter = require('./routes/promotions/products');
 const usersRouter = require('./routes/user');
 
-require('./database/createDatabase')()
-require('./database/tables')()
+require('./database/initiate')()
+
 
 const app = express()
 const port = process.env.PORT || 3333

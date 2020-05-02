@@ -22,13 +22,33 @@ async function createTablesUsers() {
     })
 }
 
-async function createTablesProducts() {
+async function createTablesCategories() {
     const con = await connection()
 
     let sql = ''
     sql = "CREATE TABLE IF NOT EXISTS vtex_categories("
-    sql += "id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, "
+    sql += "categoryId INT NOT NULL PRIMARY KEY AUTO_INCREMENT, "
     sql += "name VARCHAR(200) NOT NULL"
+    sql += ")"
+
+    con.query(sql, (err)=>{
+        if(err) throw err
+
+        con.end()
+    })
+}
+
+async function createTablesProducts() {
+    const con = await connection()
+
+    let sql = ''
+    sql = "CREATE TABLE IF NOT EXISTS vtex_products("
+    sql += "productId INT NOT NULL PRIMARY KEY AUTO_INCREMENT, "
+    sql += "description VARCHAR(255) NOT NULL, "
+    sql += "categoryId INT NOT NULL, "
+    sql += "FOREIGN KEY (categoryId) REFERENCES vtex_categories (categoryId) "
+    sql += "ON DELETE CASCADE "
+    sql += "ON UPDATE CASCADE "
     sql += ")"
 
     con.query(sql, (err)=>{
@@ -40,6 +60,7 @@ async function createTablesProducts() {
 
 async function createTables() {
     await createTablesUsers()
+    await createTablesCategories()
     await createTablesProducts()
 
 }
