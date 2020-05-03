@@ -77,7 +77,7 @@ module.exports = {
 
     async show (req, res) {
         try {
-            dataBaseFunctionsGetters.users(userId=req.params.id,'','',0,1,(err,result)=>{
+            dataBaseFunctionsGetters.users(userId=req.params.id,'','',1,1,(err,result)=>{
                 if (err) return res.status(400).json({error:err})
 
                 if(result.length === 0) return res.status(404).json({error:'user not found'})
