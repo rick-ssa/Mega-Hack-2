@@ -10,7 +10,7 @@ const authentication = (req, res, next) => {
     if(!/^Bearer$/i.test(authorization.split(' ')[0])) return res.status(400).json({error:'invalid token'})
 
     jwt.verify(authorization.split(' ')[1], process.env.API_KEY_SECRET,(err,data)=>{
-        if (err) res.status(401).send({error: err.message})
+        if (err) return res.status(401).send({error: err.message})
 
         next()
     })

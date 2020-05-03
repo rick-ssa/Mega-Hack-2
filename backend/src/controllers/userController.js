@@ -23,7 +23,7 @@ module.exports = {
 
     async store (req,res) {
         try{
-            bcrypt.hash(req.body.password,10,(err,hash)=>{
+            bcrypt.hash(req.body.password.toString(),10,(err,hash)=>{
                 if(err) throw err
                 let data = {...req.body, password: hash}
                 dataBaseFunctions.register(data,(err,result)=>{
@@ -56,9 +56,15 @@ module.exports = {
     },
 
     async destroy (req, res) {
-       try {
+        try {
+            let accessToken = req.headers.authorization.split(' ')[1]
+           let user = jwt.verify(accessToken,process.env.API_KEY_SECRET)
+            
+           if (user.userId.toString() !== req.params.id.toString()) return res.status(403).json({error: 'you can\' performe that action on other user'})
             dataBaseFunctions.deleteUsers(req.params.id,(err,result)=>{
                 if(err) return res.status(400).json({error:err})
+                
+                if(!result.affectedRows) return res.status(404).json({error: 'user not exist'})
 
                 res.sendStatus(204)
             })
