@@ -8,8 +8,17 @@ module.exports = {
     async index (req, res) {
         const {name, email, page, limit} = req.query
         
-        dataBaseFunctionsGetters.users(name,email,page,limit)
-        res.json({message: 'list lojas'})
+        try {
+            dataBaseFunctionsGetters.users(name,email,page,limit,(err,result,fields)=>{
+                if (err) return res.status(400).json({error: err})
+                if (!result) return res.status(204)
+                res.json(result)
+            })
+        }
+        catch(err) {
+            res.json({error:err})
+        }
+        
     },
 
     async store (req,res) {
