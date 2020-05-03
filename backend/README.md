@@ -73,7 +73,7 @@ Filtros:
 
 * email
     * Retorna o usuário pelo determinado email
-* nome
+* name
     * Retorna os usuários com o referido nome
 * limit
     * Quantidade de usuário por página - Padrão é 10
@@ -118,13 +118,6 @@ Exemplo de respostas:
     "email": "Exemple15@gmail.com",
     "whatsapp": "+55656565"
   },
-  {
-    "userId": 61,
-    "name": "Matheus",
-    "cnpj": "123.456.789",
-    "email": "matheuas@gmail.com",
-    "whatsapp": "+55656565"
-  }
 ]
 ```
 
