@@ -1,10 +1,14 @@
 const jwt = require('jsonwebtoken')
 const dataBaseFunctions = require('../database/handlers/inserts')
+const dataBaseFunctionsGetters = require('../database/handlers/getters')
 const bcrypt = require('bcrypt')
 
 
 module.exports = {
     async index (req, res) {
+        const {name, email, page, limit} = req.query
+        
+        dataBaseFunctionsGetters.users(name,email,page,limit)
         res.json({message: 'list lojas'})
     },
 

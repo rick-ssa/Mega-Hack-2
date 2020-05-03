@@ -10,7 +10,7 @@ async function createTablesUsers() {
     sql += "userId INT NOT NULL PRIMARY KEY AUTO_INCREMENT, "
     sql += "password VARCHAR(200) NOT NULL, "
     sql += "name VARCHAR(200) NOT NULL, "
-    sql += "email VARCHAR(100) NOT NULL, "
+    sql += "email VARCHAR(100) NOT NULL UNIQUE, "
     sql += "cnpj VARCHAR(50) NOT NULL, "
     sql += "whatsapp VARCHAR(50) , "
     sql += "type VARCHAR(20) NOT NULL"
