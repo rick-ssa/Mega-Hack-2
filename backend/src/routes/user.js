@@ -24,7 +24,7 @@ router.get('/:id', authentication ,controller.show)
 
 router.post('/' ,controller.store)
 
-router.put('/', authentication ,controller.update)
+router.put('/:id', authentication ,controller.update)
 
 router.delete('/', authentication ,controller.destroy)
 

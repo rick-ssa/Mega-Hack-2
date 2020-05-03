@@ -12,13 +12,12 @@ module.exports = {
         let filterPage = `OFFSET ${page}` 
         let filterLimit = `LIMIT ${limit}`
         
-        let sql = "SELECT name, cnpj, email, type, whatsapp "
+        let sql = "SELECT userId, name, cnpj, email, type, whatsapp "
         sql += `FROM users`
         sql += filterName ? ` WHERE ${filterName}` : ''
         sql += filterEmail ? filterName !== '' ? ` AND ${filterEmail}` : ` WHERE ${filterEmail}` : ''
         sql += " " + filterLimit
         sql += " " + filterPage
-        console.log(sql)
         const con = connection()
         
         con.query(sql,callback)

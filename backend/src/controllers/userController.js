@@ -43,7 +43,16 @@ module.exports = {
     },
 
     async update (req, res) {
-        res.json({message: 'updated loja'})
+        console.log(req.params)
+        try{
+            dataBaseFunctions.updateUsers(req.body,req.params.id,(err,result)=>{
+                if (err) return res.status(400)
+
+                res.send(result)
+            })
+        } catch(err) {
+            res.json({error: err})
+        }
     },
 
     async destroy (req, res) {
