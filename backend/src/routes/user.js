@@ -20,7 +20,7 @@ const router = express.Router()
 
 router.get('/',controller.index)
 
-router.get('/:id', authentication ,controller.show)
+router.get('/:id' ,controller.show)
 
 router.post('/' ,controller.store)
 
