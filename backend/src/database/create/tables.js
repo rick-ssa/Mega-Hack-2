@@ -45,6 +45,7 @@ async function createTablesProducts() {
     let sql = ''
     sql = "CREATE TABLE IF NOT EXISTS vtex_products("
     sql += "productId INT NOT NULL PRIMARY KEY AUTO_INCREMENT, "
+    sql += "name VARCHAR(255) NOT NULL, "
     sql += "description VARCHAR(255) NOT NULL, "
     sql += "categoryId INT NOT NULL, "
     sql += "FOREIGN KEY (categoryId) REFERENCES vtex_categories (categoryId) "
