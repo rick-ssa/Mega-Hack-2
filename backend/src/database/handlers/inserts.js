@@ -32,6 +32,6 @@ module.exports = {
 
         sql = 'DELETE FROM users WHERE userId = ' + id
 
-        con(sql,callback)
+        con.query(sql,callback)
     }
 }

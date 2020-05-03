@@ -15,7 +15,7 @@ module.exports = {
                     if(!same) return res.status(401).json({error: 'invalid password'})
 
                     const accessToken = jwt.sign({userId: result.insertId, name: req.body.name},process.env.API_KEY_SECRET,{
-                        expiresIn: '1h'
+                        expiresIn: '2h'
                     }) 
 
                     res.json({accessToken})

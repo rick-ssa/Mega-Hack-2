@@ -7,7 +7,7 @@ const authentication = (req, res, next) => {
 
     if(!authorization) return res.status(401).json({error: 'You need login'})
 
-    if(!/^Bearer$/i.test(authorization.split(' ')[0])) return res.status(400).json('invalid token')
+    if(!/^Bearer$/i.test(authorization.split(' ')[0])) return res.status(400).json({error:'invalid token'})
 
     jwt.verify(authorization.split(' ')[1], process.env.API_KEY_SECRET,(err,data)=>{
         if (err) res.status(401).send({error: err.message})
@@ -26,6 +26,6 @@ router.post('/' ,controller.store)
 
 router.put('/:id', authentication ,controller.update)
 
-router.delete('/', authentication ,controller.destroy)
+router.delete('/:id', authentication ,controller.destroy)
 
 module.exports =  router

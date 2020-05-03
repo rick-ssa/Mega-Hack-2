@@ -29,7 +29,7 @@ module.exports = {
                 dataBaseFunctions.register(data,(err,result)=>{
                     if(err) throw err
                     const accessToken = jwt.sign({userId: result.insertId, name: data.name},process.env.API_KEY_SECRET,{
-                        expiresIn: '1h'
+                        expiresIn: '2h'
                     })
         
                     res.json({userId: result.insertId, accessToken})
@@ -56,7 +56,15 @@ module.exports = {
     },
 
     async destroy (req, res) {
-        res.json({message: 'delete loja'})
+       try {
+            dataBaseFunctions.deleteUsers(req.params.id,(err,result)=>{
+                if(err) return res.status(400).json({error:err})
+
+                res.sendStatus(204)
+            })
+        } catch (err) {
+            res.status(400).json({error: err})
+        }
     },
 
     async show (req, res) {
