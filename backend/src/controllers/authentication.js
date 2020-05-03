@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const dataBaseFunctions = require('../database/handlers/getters')
+const dataBaseFunctions = require('../database/handlers/usersGetters')
 const bcrypt = require('bcrypt')
 
 module.exports = {

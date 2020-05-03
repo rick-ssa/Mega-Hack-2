@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('../../controllers/promotions/productsController')
+const controller = require('../controllers/categoriesController')
 
 const router = express.Router()
 
@@ -9,8 +9,8 @@ router.get('/:id',controller.show)
 
 router.post('/', controller.store)
 
-router.put('/', controller.update)
+router.put('/:id', controller.update)
 
-router.delete('/', controller.destroy)
+router.delete('/:id', controller.destroy)
 
 module.exports =  router

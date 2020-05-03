@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
-const dataBaseFunctions = require('../database/handlers/inserts')
-const dataBaseFunctionsGetters = require('../database/handlers/getters')
+const dataBaseFunctionsInserts = require('../database/handlers/usersInserts')
+const dataBaseFunctionsGetters = require('../database/handlers/usersGetters')
 const bcrypt = require('bcrypt')
 
 
@@ -26,7 +26,7 @@ module.exports = {
             bcrypt.hash(req.body.password.toString(),10,(err,hash)=>{
                 if(err) return res.status(400).json({error:err})
                 let data = {...req.body, password: hash}
-                dataBaseFunctions.register(data,(err,result)=>{
+                dataBaseFunctionsInserts.register(data,(err,result)=>{
                     if(err) {
                         if(err.errno===1062) return res.status(406).json({error:'duplicate key for field that has UNIQUE constrain'})
                         return res.status(400).json({error:err})
@@ -47,7 +47,7 @@ module.exports = {
 
     async update (req, res) {
         try{
-            dataBaseFunctions.updateUsers(req.body,req.params.id,(err,result)=>{
+            dataBaseFunctionsInserts.updateUsers(req.body,req.params.id,(err,result)=>{
                 if (err) return res.status(400)
 
                 res.send(result)
@@ -63,7 +63,7 @@ module.exports = {
            let user = jwt.verify(accessToken,process.env.API_KEY_SECRET)
             
            if (user.userId.toString() !== req.params.id.toString()) return res.status(403).json({error: 'you can\' performe that action on other user'})
-            dataBaseFunctions.deleteUsers(req.params.id,(err,result)=>{
+            dataBaseFunctionsInserts.deleteUsers(req.params.id,(err,result)=>{
                 if(err) return res.status(400).json({error:err})
                 
                 if(!result.affectedRows) return res.status(404).json({error: 'user not exist'})

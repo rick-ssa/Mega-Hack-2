@@ -1,8 +1,8 @@
 require('dotenv').config()
 
 const express = require('express');
-const promotionsCategoriasRouter = require('./routes/promotions/categories');
-const promotionsProductsRouter = require('./routes/promotions/products');
+const categoriasRouter = require('./routes/categories');
+const productsRouter = require('./routes/products');
 const usersRouter = require('./routes/user');
 const loginRouter = require('./routes/login');
 
@@ -15,8 +15,8 @@ const port = process.env.PORT || 3333
 
 app.use(express.json())
 
-app.use('/promotions/categories',promotionsCategoriasRouter)
-app.use('/promotions/products',promotionsProductsRouter)
+app.use('/categories',categoriasRouter)
+app.use('/products',productsRouter)
 app.use('/users',usersRouter)
 app.use('/login',loginRouter)
 
