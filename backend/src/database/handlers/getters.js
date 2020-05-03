@@ -20,7 +20,7 @@ module.exports = {
 
         whereStatement = whereStatement ? ` WHERE ${whereStatement}` : whereStatement
         
-        let sql = "SELECT userId, name, cnpj, email, type, whatsapp "
+        let sql = "SELECT userId, name, cnpj, email, whatsapp "
         sql += `FROM users`
         sql += whereStatement
         sql += " " + filterLimit

@@ -28,7 +28,7 @@ module.exports = {
                 let data = {...req.body, password: hash}
                 dataBaseFunctions.register(data,(err,result)=>{
                     if(err) {
-                        if(err.errno===1062) return res.status(406).json({error:err})
+                        if(err.errno===1062) return res.status(406).json({error:'duplicate key for field that has UNIQUE constrain'})
                         return res.status(400).json({error:err})
                     }
                     const accessToken = jwt.sign({userId: result.insertId, name: data.name},process.env.API_KEY_SECRET,{
