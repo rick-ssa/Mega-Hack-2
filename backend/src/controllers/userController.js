@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     async index (req, res) {
-        const {userId, name, email, page, limit} = req.query
         
         try {
+            const {userId, name, email, page, limit} = req.query
             dataBaseFunctionsGetters.users(userId, name,email,page,limit,(err,result,fields)=>{
                 if (err) return res.status(400).json({error: `Data base error ${err.errno}`})
                 if (!result) return res.status(204)

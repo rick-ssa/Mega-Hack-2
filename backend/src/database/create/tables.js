@@ -17,7 +17,7 @@ async function createTablesUsers() {
     sql += ")"
 
     con.query(sql, (err)=>{
-        if(err) throw err
+        if(err) console.log(err)
 
         con.end()
     })
@@ -33,7 +33,7 @@ async function createTablesCategories() {
     sql += ")"
 
     con.query(sql, (err)=>{
-        if(err) throw err
+        if(err) console.log(err)
 
         con.end()
     })
@@ -54,7 +54,7 @@ async function createTablesProducts() {
     sql += ")"
 
     con.query(sql, (err)=>{
-        if(err) throw err
+        if(err) console.log(err)
 
         con.end()
     })
@@ -84,7 +84,7 @@ async function createTablesUsersProducts() {
     sql += ")"
 
     con.query(sql, (err)=>{
-        if(err) throw err
+        if(err) console.log(err)
 
         con.end()
     })

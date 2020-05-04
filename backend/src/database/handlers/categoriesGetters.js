@@ -7,7 +7,7 @@ module.exports = {
         let filterPage = `OFFSET ${page - 1}` 
         let filterLimit = `LIMIT ${limit}`
         let whereStatement = ''
-
+        
         whereStatement += filterName
         whereStatement += whereStatement !== '' && filterCategoryId!=='' ? ` AND ${filterCategoryId}` : filterCategoryId
 
