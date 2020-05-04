@@ -178,6 +178,14 @@ Exemplo
 }
 ```
 
+### Deleta um usuário
+
+[https://megahack2.herokuapp.com/users/](https://megahack2.herokuapp.com/users/)
+
+método **Delete**
+
+Não há entradas só retorna o status `204`.
+
 ## Categorias
 
 ### Lista
