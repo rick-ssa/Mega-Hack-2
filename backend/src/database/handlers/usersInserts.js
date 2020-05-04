@@ -6,7 +6,9 @@ module.exports = {
         let columns = whatsapp ? '(name, email, password, cnpj, type, whatsapp)' : '(name, email, password, cnpj, type)'
         let values = whatsapp ? `('${name}', '${email}', '${password}', '${cnpj}', '', '${whatsapp}')` : `('${name}', '${email}', '${password}', '${cnpj}', '${type}')`
         const sql = `INSERT INTO users ${columns} VALUES ${values}`
-        con.query(sql,callback)            
+        con.query(sql,callback)   
+        
+        con.end()
     },
     async updateUsers(user, id, callback) {
         const con = connection()
@@ -22,9 +24,10 @@ module.exports = {
 
         sql = `UPDATE users SET ${alterData} WHERE userId = ${id}`
 
-        console.log(sql)
 
         con.query(sql,callback)
+
+        con.end()
     },
 
     async deleteUsers(id,callback) {

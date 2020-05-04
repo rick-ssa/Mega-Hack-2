@@ -50,7 +50,7 @@ module.exports = {
             dataBaseFunctionsInserts.updateUsers(req.body,req.params.id,(err,result)=>{
                 if (err) return res.status(400).json({error: `Data base error ${err.errno}`})
 
-                res.send(result)
+                res.sendStatus(204)
             })
         } catch(err) {
             res.json({error: err})
