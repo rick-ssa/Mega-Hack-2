@@ -16,8 +16,8 @@ module.exports = {
 
         whereStatement = whereStatement ? ` WHERE ${whereStatement}` : whereStatement
         
-        let sql = "SELECT productId, name, description, categoryId "
-        sql += `FROM vtex_products`
+        let sql = "SELECT p.productId, p.name, p.description, c.name as category  "
+        sql += `FROM vtex_products as p INNER JOIN vtex_categories as c ON c.categoryId = p.categoryId `
         sql += whereStatement
         sql += " " + filterLimit
         sql += " " + filterPage

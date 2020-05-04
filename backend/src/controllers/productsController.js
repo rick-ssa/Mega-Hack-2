@@ -18,7 +18,7 @@ module.exports = {
     async store (req,res) {
         try {
             functionsDatabaseInserts.register(req.body,(err,result)=>{
-                if(err) return res.status(400).json({error: `Database error ${err.errno}`})
+                if(err) return res.status(400).json({error:`Database error ${err.errno}`})
 
                 res.json({productId: result.insertId})
             })
