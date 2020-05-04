@@ -10,7 +10,7 @@ module.exports = {
         
         try {
             dataBaseFunctionsGetters.users(userId, name,email,page,limit,(err,result,fields)=>{
-                if (err) return res.status(400).json({error: err})
+                if (err) return res.status(400).json({error: `Data base error ${err.errno}`})
                 if (!result) return res.status(204)
                 res.json(result)
             })
@@ -48,7 +48,7 @@ module.exports = {
     async update (req, res) {
         try{
             dataBaseFunctionsInserts.updateUsers(req.body,req.params.id,(err,result)=>{
-                if (err) return res.status(400)
+                if (err) return res.status(400).json({error: `Data base error ${err.errno}`})
 
                 res.send(result)
             })
@@ -64,7 +64,7 @@ module.exports = {
             
            if (user.userId.toString() !== req.params.id.toString()) return res.status(403).json({error: 'you can\' performe that action on other user'})
             dataBaseFunctionsInserts.deleteUsers(req.params.id,(err,result)=>{
-                if(err) return res.status(400).json({error:err})
+                if (err) return res.status(400).json({error: `Data base error ${err.errno}`})
                 
                 if(!result.affectedRows) return res.status(404).json({error: 'user not exist'})
 
@@ -78,7 +78,7 @@ module.exports = {
     async show (req, res) {
         try {
             dataBaseFunctionsGetters.users(userId=req.params.id,'','',1,1,(err,result)=>{
-                if (err) return res.status(400).json({error:err})
+                if (err) return res.status(400).json({error: `Data base error ${err.errno}`})
 
                 if(result.length === 0) return res.status(404).json({error:'user not found'})
                 
