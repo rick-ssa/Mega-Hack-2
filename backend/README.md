@@ -180,7 +180,7 @@ Exemplo
 
 ### Deleta um usuário
 
-[https://megahack2.herokuapp.com/users/](https://megahack2.herokuapp.com/users/)
+[https://megahack2.herokuapp.com/users/:id](https://megahack2.herokuapp.com/users/5)
 
 método **Delete**
 
@@ -269,6 +269,21 @@ Exemplo de respostas:
 
 ### Atualiza uma categoria
 
+[https://megahack2.herokuapp.com/categories/:id](https://megahack2.herokuapp.com/categories/11)
+
+método **Put**
+
+Dados de entrada:
+
+```
+{
+    "name": "Brinquedos"
+}
+
+```
+
+### Registra uma categoria
+
 [https://megahack2.herokuapp.com/categories/](https://megahack2.herokuapp.com/categories/)
 
 método **Put**
@@ -281,5 +296,103 @@ Dados de entrada:
 }
 
 ```
+
+Dados de Retorno:
+
+```
+{
+  "categoryId": 51
+}
+
+```
+
+### Deleta uma categoria
+
+[https://megahack2.herokuapp.com/categories/:id](https://megahack2.herokuapp.com/categories/2)
+
+método **Delete**
+
+Não tem dados de entrada, só retorna o status `204`.
+
+## Produtos
+
+### Lista produtos
+
+[https://megahack2.herokuapp.com/products/](https://megahack2.herokuapp.com/products/)
+
+método **Get**
+
+Dados de saída:
+
+```
+[
+  {
+    "productId": 4,
+    "name": "Televisão",
+    "description": "tv samsung",
+    "category": "Eletrodomésticos"
+  },
+  {
+    "productId": 6,
+    "name": "Microondas",
+    "description": "Microondas",
+    "category": "Eletrodomésticos"
+  },
+  {
+    "productId": 8,
+    "name": "fogão",
+    "description": "brastemp",
+    "category": "Eletrodomésticos"
+  },
+  {
+    "productId": 9,
+    "name": "camisa",
+    "description": "camisa",
+    "category": "Vestuario"
+  }
+]
+```
+
+### Lista um único produto
+
+[https://megahack2.herokuapp.com/products/:id](https://megahack2.herokuapp.com/products/2)
+
+Método **Get**
+
+Dados de saída:
+
+```
+[
+  {
+    "productId": 4,
+    "name": "Televisão",
+    "description": "tv samsung",
+    "category": "Eletrodomésticos"
+  }
+]
+```
+
+### Altera um produto
+
+[https://megahack2.herokuapp.com/products/:id](https://megahack2.herokuapp.com/products/2)
+
+Método **Put**
+
+Dados de entrada:
+
+```
+{
+    "name": "camisa",
+		"description": "camisa",
+		"categoryId": 6
+}
+```
+**Nota:** Só precisa inserir o(s) campo(s) que desejar alterar
+
+Não há dados de retorno só o status `204`.
+
+
+
+
 
 
