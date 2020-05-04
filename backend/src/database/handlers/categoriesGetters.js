@@ -20,8 +20,6 @@ module.exports = {
         sql += " " + filterLimit
         sql += " " + filterPage
 
-        console.log(sql)
-
         const con = connection()
         
         con.query(sql,callback)

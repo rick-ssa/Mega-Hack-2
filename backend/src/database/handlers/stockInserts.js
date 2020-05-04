@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken')
 
 function getUser(token) {
     let user = jwt.verify(token,process.env.API_KEY_SECRET)
-    console.log(token,user)
     return user
 }
 

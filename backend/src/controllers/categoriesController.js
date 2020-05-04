@@ -34,7 +34,6 @@ module.exports = {
                 }
 
                 if(exists) {
-                    console.log(exists)
                     return res.json({categoryId:exists.categoryId})
                 } else {
                     databaseFunctionsInserts.register(req.body.name,(err,result)=>{
