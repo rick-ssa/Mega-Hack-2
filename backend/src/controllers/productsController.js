@@ -57,7 +57,7 @@ module.exports = {
 
     async show (req, res) {
         try {
-            functionsDatabaseGetters.products(req.params.id,'',1,1,(err,result)=>{
+            functionsDatabaseGetters.products(req.params.id,'',0,1,1,(err,result)=>{
                 if(err) return res.status(400).json({error: `Database error ${err.errno}`})
                 
                 return res.json(result)
