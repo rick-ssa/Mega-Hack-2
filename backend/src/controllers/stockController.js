@@ -68,7 +68,7 @@ module.exports = {
             dataBaseFunctionsGetters.stock(usersProductsId=req.params.id,'',1,1,token,(err,result)=>{
                 if (err) return res.status(400).json({error: `Data base error ${err.errno}`})
 
-                if(result.length === 0) return res.status(404).json({error:'user not found'})
+                if(result.length === 0) return res.status(404).json({error:'products not found'})
                 
                 res.json(result)
             })
