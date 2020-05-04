@@ -4,8 +4,11 @@ module.exports = {
     login(email,callback) {
         const con =  connection()
         const sql = `SELECT email, password FROM users WHERE email = '${email}'`
-        con.query(sql,callback)            
+        con.query(sql,callback)  
+        
+        con.end()
     },
+
     users(userId, name, email, page = 1, limit = 10, callback) {
         let filterName = name ? `name like '${name}%'` : ''
         let filterEmail = email ? `email='${email}'` : ''
@@ -29,5 +32,7 @@ module.exports = {
         const con = connection()
         
         con.query(sql,callback)
+
+        con.end()
     }
 }

@@ -5,7 +5,9 @@ module.exports = {
         const con = await connection()        
         
         const sql = `INSERT INTO vtex_categories (name) VALUES ('${name}')`
-        con.query(sql,callback)            
+        con.query(sql,callback)  
+        
+        con.end()
     },
 
     async update(name, id, callback) {
@@ -14,6 +16,8 @@ module.exports = {
         sql = `UPDATE vtex_categories SET name='${name}' WHERE categoryId = ${id}`
 
         con.query(sql,callback)
+
+        con.end()
     },
 
     async delete(id,callback) {
@@ -22,5 +26,7 @@ module.exports = {
         sql = 'DELETE FROM vtex_categories WHERE categoryId = ' + id
 
         con.query(sql,callback)
+
+        con.end()
     }
 }

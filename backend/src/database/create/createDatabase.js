@@ -14,8 +14,10 @@ async function createDatabase(){
         con.query(sql, function(err) {
             if (err) console.log(err);
             con.config.database = process.env.DATABASE_NAME
-            con.end()
+
         })
+
+        con.end()
     });
 }
 

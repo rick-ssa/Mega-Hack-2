@@ -7,7 +7,9 @@ module.exports = {
         let columns = '(name, description, categoryId)'
         let values = `('${name}', '${description}', '${categoryId}')`
         const sql = `INSERT INTO vtex_products ${columns} VALUES ${values}`
-        con.query(sql,callback)            
+        con.query(sql,callback)   
+        
+        con.end()
     },
 
     async update(productId, product,callback) {
@@ -26,6 +28,8 @@ module.exports = {
 
 
         con.query(sql,callback)
+
+        con.end()
     },
 
     async delete(id,callback) {
@@ -34,5 +38,7 @@ module.exports = {
         sql = 'DELETE FROM vtex_products WHERE productId = ' + id
 
         con.query(sql,callback)
+
+        con.end()
     }
 }

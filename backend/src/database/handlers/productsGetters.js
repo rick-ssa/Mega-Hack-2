@@ -23,5 +23,7 @@ module.exports = {
         const con = connection()
         
         con.query(sql,callback)
+
+        con.end()
     }
 }

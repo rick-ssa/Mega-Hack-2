@@ -33,5 +33,7 @@ module.exports = {
         sql = 'DELETE FROM users WHERE userId = ' + id
 
         con.query(sql,callback)
+
+        con.end()
     }
 }

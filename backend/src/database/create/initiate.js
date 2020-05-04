@@ -3,7 +3,7 @@ const initiateTables = require('./tables')
 
 async function initiate() {
     //await initiateDatabase()
-    await initiateTables()
+    //await initiateTables()
 }
 
 module.exports = initiate
