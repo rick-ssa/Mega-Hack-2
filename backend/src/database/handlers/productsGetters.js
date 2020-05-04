@@ -2,15 +2,17 @@ const connection = require('../connection')
 
 module.exports = {
     
-    products(productId, name, page = 1, limit = 10, callback) {
+    products(productId, name, categoryId, page = 1, limit = 10, callback) {
         let filterName = name ? `name like '${name}%'` : ''
         let filterProductId = productId ? `productId='${productId}'` : ''
+        let filterCategoryId = categoryId ? `categoryId='${categoryId}'` : ''
         let filterPage = `OFFSET ${(page - 1) * limit}` 
         let filterLimit = `LIMIT ${limit}`
         let whereStatement = ''
 
         whereStatement += filterName
         whereStatement += whereStatement!=='' && filterProductId!== '' ? ` AND ${filterProductId}` : filterProductId
+        whereStatement += whereStatement!=='' && filterCategoryId!== '' ? ` AND ${filterCategoryId}` : filterCategoryId
 
         whereStatement = whereStatement ? ` WHERE ${whereStatement}` : whereStatement
         

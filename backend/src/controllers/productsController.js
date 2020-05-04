@@ -4,8 +4,8 @@ const functionsDatabaseGetters = require('../database/handlers/productsGetters')
 module.exports = {
     async index (req, res) {
         try{
-            const {productId, name, limit, page} = req.query
-            functionsDatabaseGetters.products(productId, name, page, limit, (err,result) => {
+            const {productId, name, categoryId, limit, page} = req.query
+            functionsDatabaseGetters.products(productId, name, categoryId, page, limit, (err,result) => {
                 if(err) return res.status(400).json({error: `Database error ${err.errno}`})
 
                 res.json(result)
