@@ -5,7 +5,7 @@ module.exports = {
     products(productId, name, page = 1, limit = 10, callback) {
         let filterName = name ? `name like '${name}%'` : ''
         let filterProductId = productId ? `productId='${productId}'` : ''
-        let filterPage = `OFFSET ${page - 1}` 
+        let filterPage = `OFFSET ${(page - 1) * limit}` 
         let filterLimit = `LIMIT ${limit}`
         let whereStatement = ''
 

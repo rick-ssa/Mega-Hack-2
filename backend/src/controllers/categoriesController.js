@@ -5,7 +5,7 @@ module.exports = {
     async index (req, res) {
         try{
             const {categoryId, name, limit, page} = req.query
-            databaseFunctionsGetters.categories(categoryId, name, limit, page, (err,result)=>{
+            databaseFunctionsGetters.categories(categoryId, name, page,limit, (err,result)=>{
                 if(err) return res.status(400).json({error:err})
                 res.json(result)
             } )

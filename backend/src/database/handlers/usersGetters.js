@@ -13,7 +13,7 @@ module.exports = {
         let filterName = name ? `name like '${name}%'` : ''
         let filterEmail = email ? `email='${email}'` : ''
         let filterUserId = userId ? `userId='${userId}'` : ''
-        let filterPage = `OFFSET ${page - 1}` 
+        let filterPage = `OFFSET ${(page - 1) * limit}` 
         let filterLimit = `LIMIT ${limit}`
         let whereStatement = ''
 
