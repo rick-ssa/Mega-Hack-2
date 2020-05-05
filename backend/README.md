@@ -1,5 +1,12 @@
 # Backend
 
+Tecnologias utilizadas:
+* Node.js
+* MySQL 8
+* Express
+* Bcrypt
+* JsonWebToken (JWS)
+
 ## Usuários Teste
 
 ```
