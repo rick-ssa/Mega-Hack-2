@@ -7,7 +7,7 @@ Tecnologias utilizadas:
 * Bcrypt
 * JsonWebToken (JWS)
 
-## estoques Teste
+## Usuários Teste
 
 ```
 
