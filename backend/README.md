@@ -7,7 +7,7 @@ Tecnologias utilizadas:
 * Bcrypt
 * JsonWebToken (JWS)
 
-## Usuários Teste
+## estoques Teste
 
 ```
 
@@ -368,6 +368,30 @@ Não tem dados de entrada, só retorna o status `204`.
 
 método **Get**
 
+Filtros:
+
+* categoryId
+    * Retorna os produtos da catgoria
+* name
+    * Retorna os produtos com o referido nome 
+* limit
+    * Quantidade de produto por página - Padrão é 10
+* page
+    * Número da página - Padrão é a primeira página
+
+Exemplo de requisições:
+
+```
+https://megahack2.herokuapp.com/products
+
+https://megahack2.herokuapp.com/products?name=exemple
+
+https://megahack2.herokuapp.com/products?name=exemple&limit=50
+
+https://megahack2.herokuapp.com/products?page=10&limit=50
+
+```
+
 Dados de saída:
 
 ```
@@ -479,6 +503,28 @@ Não há dados de retorno, só devolve o status `204`.
 [https://megahack2.herokuapp.com/users/stock/products/](https://megahack2.herokuapp.com/users/stock/products/)
 
 método **Get**
+
+Filtros:
+
+* productId
+    * Retorna o estoque pelo determinado produto
+* limit
+    * Quantidade de item do estoque por página - Padrão é 10
+* page
+    * Número da página - Padrão é a primeira página
+
+Exemplo de requisições:
+
+```
+https://megahack2.herokuapp.com/users/stock/products
+
+https://megahack2.herokuapp.com/users/stock/products?productId=7
+
+https://megahack2.herokuapp.com/users/stock/products?productId=7&limit=50
+
+https://megahack2.herokuapp.com/users/stock/products?page=10&limit=50
+
+```
 
 Dados de saída:
 
