@@ -382,14 +382,175 @@ Dados de entrada:
 
 ```
 {
-    "name": "camisa",
-		"description": "camisa",
-		"categoryId": 6
+  "name": "camisa",
+	"description": "camisa",
+	"categoryId": 6
 }
 ```
 **Nota:** Só precisa inserir o(s) campo(s) que desejar alterar
 
 Não há dados de retorno só o status `204`.
+
+### Registra um produto
+
+[https://megahack2.herokuapp.com/products/](https://megahack2.herokuapp.com/products/)
+
+Método **Post**
+
+Dados de entrada:
+
+```
+{
+  "name": "camisa",
+	"description": "camisa",
+	"categoryId": 6
+}
+```
+
+Dados de retorno: 
+
+```
+{
+  "productId": 10
+}
+```
+
+### Deleta um produto
+
+[https://megahack2.herokuapp.com/products/:id](https://megahack2.herokuapp.com/products/2)
+
+Método **Delete**
+
+Não há dados de retorno, só devolve o status `204`.
+
+
+## Estoque
+
+**_Todas as funcionalidades do estoque são para usuários logados_**
+
+### Lista Estoque
+
+[https://megahack2.herokuapp.com/users/stock/products/](https://megahack2.herokuapp.com/users/stock/products/)
+
+método **Get**
+
+Dados de saída:
+
+```
+[
+  {
+    "stockId": 4,
+    "productId": 2,
+    "product": "fogo",
+    "description": "geladeira eletrolux",
+    "category": "Eletrodomésticos",
+    "quantity": 1,
+    "orderAmount": 4,
+    "minAmount": 5,
+    "price": 10.99
+  },
+  {
+    "stockId": 25,
+    "productId": 9,
+    "product": "camisa",
+    "description": "camisa",
+    "category": "Vestuario",
+    "quantity": 50,
+    "orderAmount": 100,
+    "minAmount": 20,
+    "price": 75.99
+  },
+  {
+    "stockId": 26,
+    "productId": 9,
+    "product": "camisa",
+    "description": "camisa",
+    "category": "Vestuario",
+    "quantity": 50,
+    "orderAmount": 100,
+    "minAmount": 20,
+    "price": 75.99
+  }
+]
+```
+
+### Lista um item do estoque
+
+[https://megahack2.herokuapp.com/users/stock/products/:id](https://megahack2.herokuapp.com/users/stock/products/2)
+
+Método **Get**
+
+Dados de saída:
+
+```
+[
+  {
+    "stockId": 25,
+    "productId": 9,
+    "product": "camisa",
+    "description": "camisa",
+    "category": "Vestuario",
+    "quantity": 50,
+    "orderAmount": 100,
+    "minAmount": 20,
+    "price": 75.99
+  }
+]
+```
+
+### Altera um Item do estoque
+
+[https://megahack2.herokuapp.com/users/stock/products/:id](https://megahack2.herokuapp.com/users/stock/products/2)
+
+Método **Put**
+
+Dados de entrada:
+
+```
+{ 
+	"quantity": 50,
+	"orderAmount": 100,
+	"minAmount": 20,
+	"price": 75.99
+}
+```
+**Nota:** Só precisa inserir o(s) campo(s) que desejar alterar
+
+Não há dados de retorno só o status `204`.
+
+### Registra um item do estoque
+
+[https://megahack2.herokuapp.com/users/stock/products/](https://megahack2.herokuapp.com/users/stock/products/)
+
+Método **Post**
+
+Dados de entrada:
+
+```
+{
+  "productId": 11,
+  "quantity": 50,
+  "orderAmount": 100,
+  "minAmount": 20,
+  "price": 75.99
+}
+```
+
+Dados de retorno: 
+
+```
+{
+  "usersProductsId": 11
+}
+```
+
+### Deleta um produto
+
+[https://megahack2.herokuapp.com/users/stock/products/:id](https://megahack2.herokuapp.com/users/stock/products/2)
+
+Método **Delete**
+
+Não há dados de retorno, só devolve o status `204`.
 
 
 
