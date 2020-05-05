@@ -1,5 +1,44 @@
 # Backend
 
+## Usuários Teste
+
+```
+
+{
+	"name": "Brás",
+	"cnpj": "32.1646",
+	"email": "bras.gomes@example.com",
+	"whatsapp": "(78) 7307-3279",
+	"password":"mnbvcx"
+}
+
+{
+	"name": "Cruz",
+	"cnpj": "72.8354",
+	"email": "matilde.dacruz@example.com",
+	"whatsapp": "(06) 0158-6123",
+	"password":"scruffy"
+}
+
+{
+	"name": "Amador",
+	"cnpj": "64.4772",
+	"email": "amador.barros@example.com",
+	"whatsapp": "(06) 0158-6123",
+	"password":"1951"
+}
+
+{
+	"name": "Dias",
+	"cnpj": "33.7716",
+	"email": "rosalina.dias@example.com",
+	"whatsapp": "(01) 2155-4367",
+	"password":"stargate"
+}
+```
+
+**Nota:** Usuários aleatoreamente criados em [https://randomuser.me/](https://randomuser.me/)
+
 ## cadastro
 
 [https://megahack2.herokuapp.com/users](https://megahack2.herokuapp.com/users)
