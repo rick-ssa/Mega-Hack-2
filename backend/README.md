@@ -383,8 +383,8 @@ Dados de entrada:
 ```
 {
   "name": "camisa",
-	"description": "camisa",
-	"categoryId": 6
+  "description": "camisa",
+  "categoryId": 6
 }
 ```
 **Nota:** Só precisa inserir o(s) campo(s) que desejar alterar
@@ -402,8 +402,8 @@ Dados de entrada:
 ```
 {
   "name": "camisa",
-	"description": "camisa",
-	"categoryId": 6
+  "description": "camisa",
+  "categoryId": 6
 }
 ```
 
