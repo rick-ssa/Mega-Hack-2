@@ -3,9 +3,9 @@ const connection = require('../connection')
 module.exports = {
     
     products(productId, name, categoryId, page = 1, limit = 10, callback) {
-        let filterName = name ? `name like '${name}%'` : ''
-        let filterProductId = productId ? `productId='${productId}'` : ''
-        let filterCategoryId = categoryId ? `categoryId='${categoryId}'` : ''
+        let filterName = name ? `p.name like '${name}%'` : ''
+        let filterProductId = productId ? `p.productId='${productId}'` : ''
+        let filterCategoryId = categoryId ? `p.categoryId='${categoryId}'` : ''
         let filterPage = `OFFSET ${(page - 1) * limit}` 
         let filterLimit = `LIMIT ${limit}`
         let whereStatement = ''
